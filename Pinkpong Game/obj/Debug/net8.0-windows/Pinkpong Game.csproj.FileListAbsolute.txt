@@ -1,0 +1,16 @@
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\bin\Debug\net8.0-windows\Pinkpong Game.exe
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\bin\Debug\net8.0-windows\Pinkpong Game.deps.json
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\bin\Debug\net8.0-windows\Pinkpong Game.runtimeconfig.json
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\bin\Debug\net8.0-windows\Pinkpong Game.dll
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\bin\Debug\net8.0-windows\Pinkpong Game.pdb
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-windows\Pinkpong_Game.Form1.resources
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-windows\Pinkpong Game.csproj.GenerateResource.cache
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-windows\Pinkpong Game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-windows\Pinkpong Game.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-windows\Pinkpong Game.AssemblyInfo.cs
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-windows\Pinkpong Game.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-windows\Pinkpong Game.dll
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-windows\refint\Pinkpong Game.dll
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-windows\Pinkpong Game.pdb
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-windows\Pinkpong Game.genruntimeconfig.cache
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-windows\ref\Pinkpong Game.dll
