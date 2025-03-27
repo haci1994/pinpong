@@ -14,3 +14,4 @@ C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-win
 C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-windows\Pinkpong Game.pdb
 C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-windows\Pinkpong Game.genruntimeconfig.cache
 C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-windows\ref\Pinkpong Game.dll
+C:\Users\User\Desktop\developer\Pinkpong Game\Pinkpong Game\obj\Debug\net8.0-windows\Pinkpong Game.sourcelink.json
