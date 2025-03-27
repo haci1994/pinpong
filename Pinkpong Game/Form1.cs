@@ -13,6 +13,8 @@ namespace Pinkpong_Game
         private bool _won = false;
         private List<Panel> _panels;
         private List<Panel> _shadowPanels;
+        private int _point = 0;
+        private int _highScore = 0;
         private int _rowSize = 3;
         private int _columnSize = 4;
 
@@ -38,34 +40,38 @@ namespace Pinkpong_Game
                 var panel = _panels[i];
 
                 //panelin alti
-                if (bt >= panel.Bottom - 2 && bt <= panel.Bottom + 2 && br >= panel.Left && bl <= panel.Right)
+                if (bt >= panel.Bottom - 3 && bt <= panel.Bottom + 3 && br >= panel.Left && bl <= panel.Right)
                 {
                     Controls.Remove(panel);
                     _panels.Remove(panel);
                     _ySpeed = -_ySpeed;
+                    _point += 10;
                 }
                 //panelin ustu
-                if (bb >= panel.Top - 2 && bb <= panel.Top + 2 && br >= panel.Left && bl <= panel.Right)
+                if (bb >= panel.Top - 3 && bb <= panel.Top + 3 && br >= panel.Left && bl <= panel.Right)
                 {
                     Controls.Remove(panel);
                     _panels.Remove(panel);
                     _ySpeed = -_ySpeed;
+                    _point += 20;
                 }
 
                 //panelin solu
-                if (br >= panel.Left - 2 && br <= panel.Left + 2 && ((bt <= panel.Bottom && bt >= panel.Top) || (bb >= panel.Top && bb <= panel.Bottom)))
+                if (br >= panel.Left - 3 && br <= panel.Left + 3 && ((bt <= panel.Bottom && bt >= panel.Top) || (bb >= panel.Top && bb <= panel.Bottom)))
                 {
                     Controls.Remove(panel);
                     _panels.Remove(panel);
                     _xSpeed = -_xSpeed;
+                    _point += 30;
                 }
 
                 //panelin sagi
-                if (bl >= panel.Right - 2 && bl <= panel.Right + 2 && ((bt <= panel.Bottom && bt >= panel.Top) || (bb >= panel.Top && bb <= panel.Bottom)))
+                if (bl >= panel.Right - 3 && bl <= panel.Right + 3 && ((bt <= panel.Bottom && bt >= panel.Top) || (bb >= panel.Top && bb <= panel.Bottom)))
                 {
                     Controls.Remove(panel);
                     _panels.Remove(panel);
                     _xSpeed = -_xSpeed;
+                    _point += 30;
                 }
             }
         }
@@ -86,7 +92,17 @@ namespace Pinkpong_Game
                     Controls.Remove(panel);
                 }
                 _panels.Clear();
-                MessageBox.Show("Game OVER!");
+                MessageBox.Show($"Game OVER! Score: {_point}");
+                if (_point > _highScore)
+                {
+                    _highScore = _point;
+                    _point = 0;
+                    lblHighScore.Text = _highScore.ToString();
+                } else
+                {
+                    _point = 0;
+                    lblHighScore.Text = _highScore.ToString();
+                }
             }
 
             if (_won)
@@ -103,6 +119,9 @@ namespace Pinkpong_Game
                     Controls.Remove(panel);
                 }
                 _panels.Clear();
+                _highScore = _point;
+                _point = 0;
+                lblHighScore.Text = _highScore.ToString();
                 MessageBox.Show("CLEAR! GOOD JOB!");
             }
         }
@@ -144,7 +163,7 @@ namespace Pinkpong_Game
 
         public List<Panel> MakeShadowButtons(int w, int h)
         {
-
+            
             if (w > 10 || h > 6)
             {
                 w = 10;
@@ -166,7 +185,7 @@ namespace Pinkpong_Game
                     panel.Height = 20;
                     panel.Left = leftSpare + j * (btnW + btwn);
                     panel.Top = 60 + i * 25;
-                    panel.BackColor = Color.White;
+                    panel.BackColor = Color.Wheat;
 
                     panelss.Add(panel);
                     Controls.Add(panel);
@@ -180,6 +199,8 @@ namespace Pinkpong_Game
         {
 
             CheckGameOver();
+           
+            lblScorePoint.Text = _point.ToString();
 
             if (_panels.Count == 0) _won = true;
 
@@ -323,6 +344,11 @@ namespace Pinkpong_Game
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

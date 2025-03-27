@@ -39,6 +39,10 @@
             label1 = new Label();
             textboxRow = new TextBox();
             btnPause = new Button();
+            lblScorePoint = new Label();
+            lblScore = new Label();
+            label3 = new Label();
+            lblHighScore = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -51,7 +55,7 @@
             btnBall.FlatAppearance.MouseDownBackColor = Color.RoyalBlue;
             btnBall.FlatAppearance.MouseOverBackColor = Color.DodgerBlue;
             btnBall.FlatStyle = FlatStyle.Flat;
-            btnBall.Location = new Point(491, 516);
+            btnBall.Location = new Point(501, 516);
             btnBall.Name = "btnBall";
             btnBall.Size = new Size(15, 15);
             btnBall.TabIndex = 0;
@@ -66,7 +70,7 @@
             // 
             panelKick.BackColor = Color.PaleVioletRed;
             panelKick.BackgroundImageLayout = ImageLayout.None;
-            panelKick.Location = new Point(400, 550);
+            panelKick.Location = new Point(404, 540);
             panelKick.Name = "panelKick";
             panelKick.Size = new Size(200, 10);
             panelKick.TabIndex = 1;
@@ -83,7 +87,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(128, 64, 64);
+            panel1.BackColor = Color.Brown;
             panel1.Controls.Add(label2);
             panel1.Controls.Add(textBoxColumn);
             panel1.Controls.Add(label1);
@@ -133,12 +137,12 @@
             // 
             // btnPause
             // 
-            btnPause.BackColor = Color.DarkKhaki;
+            btnPause.BackColor = Color.BurlyWood;
             btnPause.BackgroundImageLayout = ImageLayout.None;
             btnPause.Cursor = Cursors.Hand;
             btnPause.FlatStyle = FlatStyle.Flat;
             btnPause.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic);
-            btnPause.ForeColor = Color.DarkOliveGreen;
+            btnPause.ForeColor = Color.Linen;
             btnPause.Location = new Point(902, 5);
             btnPause.Name = "btnPause";
             btnPause.Size = new Size(75, 23);
@@ -147,12 +151,57 @@
             btnPause.UseVisualStyleBackColor = false;
             btnPause.Click += button1_Click;
             // 
+            // lblScorePoint
+            // 
+            lblScorePoint.AutoSize = true;
+            lblScorePoint.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblScorePoint.Location = new Point(55, 6);
+            lblScorePoint.Name = "lblScorePoint";
+            lblScorePoint.Size = new Size(14, 15);
+            lblScorePoint.TabIndex = 5;
+            lblScorePoint.Text = "0";
+            lblScorePoint.Click += label3_Click;
+            // 
+            // lblScore
+            // 
+            lblScore.AutoSize = true;
+            lblScore.Location = new Point(14, 6);
+            lblScore.Name = "lblScore";
+            lblScore.Size = new Size(39, 15);
+            lblScore.TabIndex = 6;
+            lblScore.Text = "Score:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = Color.Goldenrod;
+            label3.Location = new Point(14, 21);
+            label3.Name = "label3";
+            label3.Size = new Size(68, 15);
+            label3.TabIndex = 7;
+            label3.Text = "High Score:";
+            // 
+            // lblHighScore
+            // 
+            lblHighScore.AutoSize = true;
+            lblHighScore.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblHighScore.ForeColor = Color.Goldenrod;
+            lblHighScore.Location = new Point(79, 21);
+            lblHighScore.Name = "lblHighScore";
+            lblHighScore.Size = new Size(14, 15);
+            lblHighScore.TabIndex = 8;
+            lblHighScore.Text = "0";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Moccasin;
+            BackColor = Color.BlanchedAlmond;
             ClientSize = new Size(984, 561);
+            Controls.Add(lblHighScore);
+            Controls.Add(label3);
+            Controls.Add(lblScore);
+            Controls.Add(lblScorePoint);
             Controls.Add(btnPause);
             Controls.Add(panel1);
             Controls.Add(btnBall);
@@ -166,6 +215,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -180,5 +230,9 @@
         private Button btnPause;
         private Label label2;
         private TextBox textBoxColumn;
+        private Label lblScorePoint;
+        private Label lblScore;
+        private Label label3;
+        private Label lblHighScore;
     }
 }
