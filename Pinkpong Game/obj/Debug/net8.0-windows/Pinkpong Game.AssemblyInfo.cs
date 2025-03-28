@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pinkpong Game")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8ebe6256a9c7a2ff488c82eeb7fa6abcadb992c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+955f796b6312f0ab8e33d02f9f9f461fa3aba1bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pinkpong Game")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pinkpong Game")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

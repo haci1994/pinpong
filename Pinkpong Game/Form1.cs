@@ -46,6 +46,7 @@ namespace Pinkpong_Game
                     _panels.Remove(panel);
                     _ySpeed = -_ySpeed;
                     _point += 10;
+                    break;
                 }
                 //panelin ustu
                 if (bb >= panel.Top - 3 && bb <= panel.Top + 3 && br >= panel.Left && bl <= panel.Right)
@@ -54,6 +55,7 @@ namespace Pinkpong_Game
                     _panels.Remove(panel);
                     _ySpeed = -_ySpeed;
                     _point += 20;
+                    break;
                 }
 
                 //panelin solu
@@ -63,6 +65,7 @@ namespace Pinkpong_Game
                     _panels.Remove(panel);
                     _xSpeed = -_xSpeed;
                     _point += 30;
+                    break;
                 }
 
                 //panelin sagi
@@ -72,6 +75,7 @@ namespace Pinkpong_Game
                     _panels.Remove(panel);
                     _xSpeed = -_xSpeed;
                     _point += 30;
+                    break;
                 }
             }
         }
@@ -213,12 +217,6 @@ namespace Pinkpong_Game
 
             if (btnBall.Top <= 0) _ySpeed = -_ySpeed;
 
-            if (btnBall.Bottom >= ClientSize.Height)
-            {
-                _gameOver = true;
-                _ySpeed = -_ySpeed;
-            }
-
             int bl = btnBall.Left;
             int br = btnBall.Right;
             int bb = btnBall.Bottom;
@@ -275,6 +273,12 @@ namespace Pinkpong_Game
                     _xSpeed = -_xSpeed;
                     _ySpeed = -_ySpeed;
                 }
+            }
+
+            if (btnBall.Bottom > panelKick.Top+1)
+            {
+                _gameOver = true;
+                //_ySpeed = -_ySpeed;
             }
 
             CheckPanelTouch();
