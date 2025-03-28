@@ -18,12 +18,16 @@ namespace Pinkpong_Game
         private int _rowSize = 3;
         private int _columnSize = 4;
 
+
         public Form1()
         {
 
             InitializeComponent();
             //_panels = MakeButtons(_columnSize, _rowSize);
             btnPause.Hide();
+            btnStop.Hide();
+            btnBall.Hide();
+            panelKick.Hide();
             //timer1.Start();
         }
 
@@ -33,7 +37,6 @@ namespace Pinkpong_Game
             int bt = btnBall.Top;
             int br = btnBall.Right;
             int bl = btnBall.Left;
-
 
             for (int i = 0; i < _panels.Count; i++)
             {
@@ -77,7 +80,9 @@ namespace Pinkpong_Game
                     _point += 30;
                     break;
                 }
+
             }
+
         }
 
         public void CheckGameOver()
@@ -87,26 +92,36 @@ namespace Pinkpong_Game
                 timer1.Stop();
                 panel1.Show();
                 btnPause.Hide();
+                btnStop.Hide();
+                btnBall.Hide();
+                panelKick.Hide();
+
                 foreach (var panel in _panels)
                 {
                     Controls.Remove(panel);
                 }
+
                 foreach (var panel in _shadowPanels)
                 {
                     Controls.Remove(panel);
                 }
+
                 _panels.Clear();
+
                 MessageBox.Show($"Game OVER! Score: {_point}");
+
                 if (_point > _highScore)
                 {
                     _highScore = _point;
                     _point = 0;
                     lblHighScore.Text = _highScore.ToString();
-                } else
+                }
+                else
                 {
                     _point = 0;
                     lblHighScore.Text = _highScore.ToString();
                 }
+
             }
 
             if (_won)
@@ -114,6 +129,10 @@ namespace Pinkpong_Game
                 timer1.Stop();
                 panel1.Show();
                 btnPause.Hide();
+                btnStop.Hide();
+                btnBall.Hide();
+                panelKick.Hide();
+
                 foreach (var panel in _panels)
                 {
                     Controls.Remove(panel);
@@ -122,11 +141,26 @@ namespace Pinkpong_Game
                 {
                     Controls.Remove(panel);
                 }
+
                 _panels.Clear();
-                _highScore = _point;
+
+                if (_point > _highScore)
+                {
+                    _highScore = _point;
+                    _point = 0;
+                    lblHighScore.Text = _highScore.ToString();
+                }
+                else
+                {
+                    _point = 0;
+                    lblHighScore.Text = _highScore.ToString();
+                }
+
                 _point = 0;
+
                 lblHighScore.Text = _highScore.ToString();
                 MessageBox.Show("CLEAR! GOOD JOB!");
+
             }
         }
 
@@ -139,6 +173,7 @@ namespace Pinkpong_Game
                 w = 10;
                 h = 6;
             }
+
             int btnW = 70;
             int btwn = 5;
             int leftSpare = (ClientSize.Width - btnW * w - 5 * (w - 1)) / 2;
@@ -163,16 +198,18 @@ namespace Pinkpong_Game
             }
 
             return panelss;
+
         }
 
         public List<Panel> MakeShadowButtons(int w, int h)
         {
-            
+
             if (w > 10 || h > 6)
             {
                 w = 10;
                 h = 6;
             }
+
             int btnW = 70;
             int btwn = 5;
             int leftSpare = (ClientSize.Width - btnW * w - 5 * (w - 1)) / 2;
@@ -194,16 +231,17 @@ namespace Pinkpong_Game
                     panelss.Add(panel);
                     Controls.Add(panel);
                 }
+
             }
 
             return panelss;
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
             CheckGameOver();
-           
+
             lblScorePoint.Text = _point.ToString();
 
             if (_panels.Count == 0) _won = true;
@@ -217,6 +255,23 @@ namespace Pinkpong_Game
 
             if (btnBall.Top <= 0) _ySpeed = -_ySpeed;
 
+            if(btnBall.Bounds.IntersectsWith(btnPause.Bounds))
+            {
+                btnPause.Visible = false;
+            } else
+            {
+                btnPause.Visible = true;
+            }
+
+            if (btnBall.Bounds.IntersectsWith(btnStop.Bounds))
+            {
+                btnStop.Visible = false;
+            }
+            else
+            {
+                btnStop.Visible = true;
+            }
+
             int bl = btnBall.Left;
             int br = btnBall.Right;
             int bb = btnBall.Bottom;
@@ -225,7 +280,6 @@ namespace Pinkpong_Game
             int p1 = panelKick.Left + panelKick.Width / 3;
             int p2 = panelKick.Right - panelKick.Width / 3;
             int pt = panelKick.Top;
-
 
             //left part behavior
             if (bl <= p1 && br >= pl && bb >= pt)
@@ -275,7 +329,7 @@ namespace Pinkpong_Game
                 }
             }
 
-            if (btnBall.Bottom > panelKick.Top+1)
+            if (btnBall.Bottom > panelKick.Top + 1)
             {
                 _gameOver = true;
                 //_ySpeed = -_ySpeed;
@@ -301,13 +355,13 @@ namespace Pinkpong_Game
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            btnBall.Left = 500;
-            btnBall.Top = 300;
+            btnBall.Left = (ClientSize.Width-btnBall.Width)/2;
+            btnBall.Top = panelKick.Top-btnBall.Height;
             _xSpeed = 2;
-            _ySpeed = 2;
-
+            _ySpeed = -2;
             _gameOver = false;
             _won = false;
+            btnStop.Show();
 
             try
             {
@@ -324,10 +378,8 @@ namespace Pinkpong_Game
             timer1.Start();
             panel1.Hide();
             btnPause.Show();
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            btnBall.Show();
+            panelKick.Show();
 
         }
 
@@ -345,16 +397,22 @@ namespace Pinkpong_Game
                 btnPause.Text = "Continue";
                 _gamePause = true;
             }
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void Stop()
         {
+            timer1.Stop();
+            _gameOver = true;
+            btnStop.Hide();
+            btnBall.Hide();
+            panelKick.Hide();
+        }
 
+        private void btnStop_Click(object sender, EventArgs e)
+        {            
+            Stop();
+            CheckGameOver();            
         }
     }
 }

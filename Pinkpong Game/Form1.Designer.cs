@@ -43,6 +43,7 @@
             lblScore = new Label();
             label3 = new Label();
             lblHighScore = new Label();
+            btnStop = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -108,7 +109,6 @@
             label2.Size = new Size(76, 15);
             label2.TabIndex = 4;
             label2.Text = "Column Size";
-            label2.Click += label2_Click;
             // 
             // textBoxColumn
             // 
@@ -160,7 +160,6 @@
             lblScorePoint.Size = new Size(14, 15);
             lblScorePoint.TabIndex = 5;
             lblScorePoint.Text = "0";
-            lblScorePoint.Click += label3_Click;
             // 
             // lblScore
             // 
@@ -192,12 +191,29 @@
             lblHighScore.TabIndex = 8;
             lblHighScore.Text = "0";
             // 
+            // btnStop
+            // 
+            btnStop.BackColor = Color.IndianRed;
+            btnStop.BackgroundImageLayout = ImageLayout.None;
+            btnStop.Cursor = Cursors.Hand;
+            btnStop.FlatStyle = FlatStyle.Flat;
+            btnStop.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic);
+            btnStop.ForeColor = Color.Linen;
+            btnStop.Location = new Point(902, 34);
+            btnStop.Name = "btnStop";
+            btnStop.Size = new Size(75, 23);
+            btnStop.TabIndex = 9;
+            btnStop.Text = "Stop";
+            btnStop.UseVisualStyleBackColor = false;
+            btnStop.Click += btnStop_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.BlanchedAlmond;
             ClientSize = new Size(984, 561);
+            Controls.Add(btnStop);
             Controls.Add(lblHighScore);
             Controls.Add(label3);
             Controls.Add(lblScore);
@@ -234,5 +250,6 @@
         private Label lblScore;
         private Label label3;
         private Label lblHighScore;
+        private Button btnStop;
     }
 }
